@@ -1,0 +1,23 @@
+{% extends "base.html" %}{% load static from staticfiles %}
+
+{% block content %}
+    <h3>{{titulo}}</h3>
+    <div class="row">
+        {% for pokemon in pokemon_list %}
+        <div class="col-md-3">
+            <div class="card border-primary mb-3" style="max-width: 20rem;">
+            <div class="card-header">
+                <h4 class="card-title">{{pokemon.name}}</h4>
+            </div>
+                <div class="card-body text-center">
+                    <img src="{{pokemon.image}}" alt="{{pokemon.name}}">
+                    <div>
+                        <a href="{% url 'get_pokemon' pokemon.id %}" class="btn btn-success">Ver Pokemon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

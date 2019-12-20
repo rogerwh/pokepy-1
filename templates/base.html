@@ -1,0 +1,49 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PokeAPI</title>
+
+    <link href="{% static 'assets/bootstrap.css'  %}" rel="stylesheet" type="text/css" media="all"/>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">PokePy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'pokemon_list' %}">Lista Pokemon <span class="sr-only">(current)</span></a>
+                </li>
+                <!-- <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">About</a> -->
+                <!-- </li> -->
+            </ul>
+            <div class="form-inline my-2 my-lg-0"></div>
+                <img src="{% static 'images/logo.png' %}" width="50px" height="50px">
+            </div>
+        </div>
+      </nav>
+      <div class="row">
+          <div class="col-md-12 col-lg-12">
+            <div class="jumbotron">
+                {% block content %}{% endblock%}
+            </div>
+          </div>
+      </div>
+
+     
+</body>
+</html>
