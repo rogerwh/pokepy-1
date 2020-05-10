@@ -1,11 +1,7 @@
-#!
-# -*- coding: utf-8 -*-
-
-from django.shortcuts import render
-
 import requests
 import json
 
+from django.shortcuts import render
 
 def pokemon_list(request):
 
@@ -41,7 +37,7 @@ def pokemon_list_type(request, pokemon_type):
     response_pokemon = response.get("pokemon", None)
     pokemon_list = []
 
-    pokemon_limit = 30
+    pokemon_limit = 60
     for dict_pokemon in response_pokemon:
         if pokemon_limit == 0:
             break
@@ -58,6 +54,7 @@ def pokemon_list_type(request, pokemon_type):
             "id": pokemon_id})
         pokemon_limit = pokemon_limit - 1
     return render(request, 'lista_pokemon.html', {"pokemon_list": pokemon_list, 'titulo':titulo})
+
 
 def get_pokemon(requests, pokemon_id):
     
@@ -114,6 +111,7 @@ def get_pokemon(requests, pokemon_id):
 
     return render(requests, 'pokemon.html', {'pokemon': pokemon})
 
+
 def create_request(endpoint):
     
     try:
@@ -123,3 +121,20 @@ def create_request(endpoint):
         response = {}
 
     return response
+
+class Pokemon:
+    
+    def __init__(self, id):
+        self.id = id
+        self.name = "Unknown"
+        self.weight = None
+        self.height = None
+        self.types = []
+        self.skills = []
+        self.movements = []
+
+    def set_data(self):
+        pass
+
+    def get_request(self):
+        pass

@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'api'
+    'ws4redis',
+    'api',
+    'commons',
 ]
 
 MIDDLEWARE = [
@@ -64,6 +66,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.contrib.auth.context_processors.auth',
+                'ws4redis.context_processors.default',
             ],
         },
     },
@@ -143,3 +147,13 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media/media')
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_TIMEZONE=TIME_ZONE
 
+# WS4REDIS
+WEBSOCKET_URL = '/ws/'
+WS4REDIS_CONNECTION = {
+    'host': "127.0.0.1",
+    'port': 6379,
+    'db': 3,
+    'password': ""
+}
+
+WSGI_APPLICATION = 'ws4redis.django_runserver.application'

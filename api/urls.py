@@ -1,6 +1,3 @@
-#!
-# -*- coding: utf-8 -*-
-
 from django.conf.urls import url
 from .views import pokemon_list, get_pokemon, pokemon_list_type
 
