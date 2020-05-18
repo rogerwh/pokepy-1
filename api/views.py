@@ -4,8 +4,9 @@ import json
 from django.shortcuts import render
 
 def pokemon_list(request):
+    limit = request.GET.get("limit", 12)
 
-    endpoint = "https://pokeapi.co/api/v2/pokemon/?limit=30"
+    endpoint = F"https://pokeapi.co/api/v2/pokemon/?limit={limit}"
     response = create_request(endpoint)
 
     titulo = "Lista de Pokemon"
