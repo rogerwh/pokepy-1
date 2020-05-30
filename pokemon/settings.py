@@ -163,4 +163,4 @@ WS4REDIS_CONNECTION = {
     'password': ""
 }
 
-WSGI_APPLICATION = 'ws4redis.django_runserver.application'
+# WSGI_APPLICATION = 'ws4redis.django_runserver.application'
